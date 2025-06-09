@@ -1,3 +1,4 @@
+import { Flex, Text } from "@radix-ui/themes";
 import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 
@@ -7,7 +8,8 @@ const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
     <nav className="sticky z-99 top-0 bg-gradient-to-b from-purple-950 to-purple-500  text-white p-4 shadow-lg">
-      <div className="max-w-6xl mx-auto flex justify-between items-center">
+      <Flex justify="between" align="center" maxWidth="6xl" className=" mx-auto">
+        
         <Link
           to="/home"
           className="text-2xl font-bold hover:text-white-200 transition-colors"
@@ -15,7 +17,7 @@ const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
           ShopApp
         </Link>
 
-        <div className="flex items-center space-x-6">
+        <Flex align="center" className="space-x-6">
           <NavLink
             to="/products"
             className={({ isActive }) =>
@@ -46,13 +48,16 @@ const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
             </span>
 
              {totalItems > 0 && (
-    <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
-      {totalItems}
-    </span>
-             )}
+          <Flex justify="center">
+              <Text size="2" align="center" weight="medium" className="absolute -top-1 -right-1 bg-red-600 text-white rounded-full h-5 w-5 ">
+                {totalItems}
+              </Text>
+          </Flex>
+          
+         )}
           </NavLink>
-        </div>
-      </div>
+        </Flex>
+      </Flex>
     </nav>
   );
 };

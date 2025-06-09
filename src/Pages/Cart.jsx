@@ -54,7 +54,6 @@ const Cart = () => {
             <Flex
               key={item.id}
               align={"center"}
-              // justify={"between"}
               mb="4"
               p="4"
               gap="2"
